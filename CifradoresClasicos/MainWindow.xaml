@@ -2,7 +2,9 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="Cifradores Clásicos" Height="573.382" Width="951.177" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Title="Cifradores Clásicos" Height="573.382" Width="951.177" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen"
+                       BorderThickness="0" 
+                      GlowBrush="Black" Icon="Resources/candado.png">
 
     <Grid>
         <Grid.ColumnDefinitions>
