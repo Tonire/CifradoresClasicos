@@ -43,5 +43,7 @@
 
         </TabControl>
 
+        <Image HorizontalAlignment="Left" Height="221" Margin="770,372,-46,-49" VerticalAlignment="Top" Width="221" Source="Resources/candadoFondo.png" Opacity="0.2" FlowDirection="RightToLeft"/>
+
     </Grid>
 </Controls:MetroWindow>
