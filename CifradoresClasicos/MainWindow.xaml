@@ -32,7 +32,12 @@
                     <TextBox HorizontalAlignment="Left" Height="23" Margin="144,90,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Créditos" Margin="412,0,-412,0"/>
+            <TabItem Header="Créditos" Margin="412,0,-412,0">
+                <Grid>
+                    <Label Content="Antonio Rebollo Berná&#xD;&#xA;Pablo López Riquelme&#xD;&#xA;Alejandro Puerto Carrasco&#xD;&#xA;Julio Zamora Pastor&#xD;&#xA;" Height="100" Margin="25,24,677,355"/>
+                </Grid>
+            </TabItem>
+
 
         </TabControl>
 
