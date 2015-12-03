@@ -20,10 +20,10 @@
                             Orientation="Horizontal" VerticalAlignment="Top" Width="665" Height="105">
                             <TextBlock />
                             <TextBox
-                        		x:Name="VerticallyExpandMe"
+                        		x:Name="textoPlano"
                         		Margin="10,2,10,1"
                         		AcceptsReturn="True"
-                        		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="650" MaxLength="650" TextWrapping="Wrap" Padding="0" TextChanged="VerticallyExpandMe_TextChanged"
+                        		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="650" MaxLength="650" TextWrapping="Wrap" Padding="0" TextChanged="textoPlano_TextChanged"
                                 />
                         </StackPanel>
                     </StackPanel>
@@ -31,22 +31,32 @@
                     	Orientation="Horizontal" VerticalAlignment="Top" Height="105" Margin="74,295,180,0">
                         <TextBlock />
                         <TextBox
-                    		x:Name="Expandir2"
+                    		x:Name="textoCifrado"
                     		Margin="10,2,10,1"
                     		AcceptsReturn="True"
-                    		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="650" MaxLength="650" TextWrapping="Wrap" Padding="0"
+                    		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="650" MaxLength="650" TextWrapping="Wrap" Padding="0" TextChanged="textoCifrado_TextChanged"
                                 />
                     </StackPanel>
                     <Label x:Name="labelCifrado" Content="Texto cifrado" HorizontalAlignment="Left" Margin="86,264,0,0" VerticalAlignment="Top" Width="97"/>
                     <Controls:ToggleSwitch Header="Acción" OnLabel="Cifrar" OffLabel="Descifrar" Content="" IsChecked="True" VerticalAlignment="Top" VerticalContentAlignment="Top" Margin="802,173,54,0" Unchecked="CambiaraDescifrarCesar" Checked="cambiarCifrarCesar"/>
                     <Label Content="Cifrar" HorizontalAlignment="Left" Margin="870,203,0,0" VerticalAlignment="Top"/>
                     <Label Content="Descifrar" HorizontalAlignment="Left" Margin="741,203,0,0" VerticalAlignment="Top"/>
-                    <Image HorizontalAlignment="Left" Height="185" Margin="6,130,0,0" VerticalAlignment="Top" Width="94" Source="Resources/flechaFondoBajar.png" RenderTransformOrigin="0.5,0.5" Opacity="0.6">
+                    <Image x:Name="imagenBajar" HorizontalAlignment="Left" Height="185" Margin="6,130,0,0" VerticalAlignment="Top" Width="94" Source="Resources/flechaFondoBajar.png" RenderTransformOrigin="0.5,0.5" Opacity="0.6">
                         <Image.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleX="-1"/>
                                 <SkewTransform AngleY="-6.405"/>
                                 <RotateTransform Angle="-12.558"/>
+                                <TranslateTransform X="-0.696" Y="-5.23"/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Image x:Name="imagenSubir" HorizontalAlignment="Left" Height="185" Margin="17,138,0,0" VerticalAlignment="Top" Width="94" Source="Resources/flechaFondo.png" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform AngleY="-6.405"/>
+                                <RotateTransform Angle="12.107"/>
                                 <TranslateTransform X="-0.696" Y="-5.23"/>
                             </TransformGroup>
                         </Image.RenderTransform>
@@ -61,8 +71,127 @@
             </TabItem>
             <TabItem Header="Playfair">
                 <Grid>
-                    <ComboBox HorizontalAlignment="Left" Margin="230,74,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Label x:Name="labelPlanoPlayfair" Content="Texto plano" HorizontalAlignment="Left" Margin="86,75,0,0" VerticalAlignment="Top" Width="97" Panel.ZIndex="1"/>
+                    <StackPanel x:Name="stackPlayfair1"
+                    	Orientation="Horizontal" VerticalAlignment="Top" Height="105" Margin="74,106,282,0">
+                        <TextBlock />
+                        <TextBox
+                    		x:Name="textoPlanoPlayfair"
+                    		Margin="10,2,10,0"
+                    		AcceptsReturn="True"
+                    		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="550" MaxLength="650" TextWrapping="Wrap" Padding="0" TextChanged="textoCifrado_TextChanged" Width="400"
+                                />
+                    </StackPanel>
+                    <TextBox x:Name="claveCifradoPlayfair" HorizontalAlignment="Left" Height="23" Margin="477,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
+                    <Label Content="Clave" HorizontalAlignment="Left" Margin="434,43,0,0" VerticalAlignment="Top"/>
+                    <Image x:Name="imagenBajarPlayfair" HorizontalAlignment="Left" Height="185" Margin="6,130,0,0" VerticalAlignment="Top" Width="94" Source="Resources/flechaFondoBajar.png" RenderTransformOrigin="0.5,0.5" Opacity="0.6">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform AngleY="-6.405"/>
+                                <RotateTransform Angle="-12.558"/>
+                                <TranslateTransform X="-0.696" Y="-5.23"/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Image x:Name="imagenSubirPlayfair" HorizontalAlignment="Left" Height="185" Margin="17,138,0,0" VerticalAlignment="Top" Width="94" Source="Resources/flechaFondo.png" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform AngleY="-6.405"/>
+                                <RotateTransform Angle="12.107"/>
+                                <TranslateTransform X="-0.696" Y="-5.23"/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                    <StackPanel x:Name="stackPlayfair2"
+                    	Orientation="Horizontal" VerticalAlignment="Top" Height="105" Margin="74,295,282,0">
+                        <TextBlock />
+                        <TextBox
+                    		x:Name="textoCifradoPlayfair"
+                    		Margin="10,2,10,0"
+                    		AcceptsReturn="True"
+                    		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="550" MaxLength="650" TextWrapping="Wrap" Padding="0" TextChanged="textoCifrado_TextChanged" Width="400"
+                                />
+                    </StackPanel>
+                    <Label x:Name="labelCifradoPlayfair" Content="Texto cifrado" HorizontalAlignment="Left" Margin="86,264,0,0" VerticalAlignment="Top" Width="97"/>
+                    <Controls:ToggleSwitch x:Name="switchPlayfair" Header="Acción" OnLabel="Cifrar" OffLabel="Descifrar" Content="" IsChecked="True" VerticalAlignment="Top" VerticalContentAlignment="Top" Margin="791,10,65,0"/>
+                    <Label Content="Cifrar" HorizontalAlignment="Left" Margin="859,43,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Descifrar" HorizontalAlignment="Left" Margin="730,43,0,0" VerticalAlignment="Top"/>
+                    <Grid HorizontalAlignment="Left" Height="172" Margin="730,137,0,0" VerticalAlignment="Top" Width="168" ShowGridLines="True">
+                        <Label x:Name="_0" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_1" Content="" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_2" Content="" HorizontalAlignment="Left" Margin="77,10,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_3" Content="" HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_4" Content="" HorizontalAlignment="Left" Margin="140,10,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_5" Content="" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_6" Content="" HorizontalAlignment="Left" Margin="43,41,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_7" Content="" HorizontalAlignment="Left" Margin="77,41,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_8" Content="" HorizontalAlignment="Left" Margin="110,41,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_9" Content="" HorizontalAlignment="Left" Margin="140,41,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_10" Content="" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_11" Content="" HorizontalAlignment="Left" Margin="43,72,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_12" Content="" HorizontalAlignment="Left" Margin="77,72,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_13" Content="" HorizontalAlignment="Left" Margin="110,72,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_14" Content="" HorizontalAlignment="Left" Margin="140,72,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_15" Content="" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_16" Content="" HorizontalAlignment="Left" Margin="43,103,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_17" Content="" HorizontalAlignment="Left" Margin="77,103,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_18" Content="" HorizontalAlignment="Left" Margin="110,103,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_19" Content="" HorizontalAlignment="Left" Margin="140,103,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_20" Content="" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_21" Content="" HorizontalAlignment="Left" Margin="43,130,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_22" Content="" HorizontalAlignment="Left" Margin="77,130,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_23" Content="" HorizontalAlignment="Left" Margin="110,130,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="_24" Content="" HorizontalAlignment="Left" Margin="140,130,0,0" VerticalAlignment="Top"/>
+                        <Image HorizontalAlignment="Left" Height="7" Margin="-3,36,-2,0" VerticalAlignment="Top" Width="173" Source="Resources/Linea.png"/>
+                        <Image HorizontalAlignment="Left" Height="7" Margin="-5,67,0,0" VerticalAlignment="Top" Width="173" Source="Resources/Linea.png"/>
+                        <Image HorizontalAlignment="Left" Height="7" Margin="-5,98,0,0" VerticalAlignment="Top" Width="173" Source="Resources/Linea.png"/>
+                        <Image HorizontalAlignment="Left" Height="7" Margin="-5,129,0,0" VerticalAlignment="Top" Width="173" Source="Resources/Linea.png"/>
+                        <Image HorizontalAlignment="Left" Height="6" Margin="-48,80,0,0" VerticalAlignment="Top" Width="173" Source="Resources/Linea.png" RenderTransformOrigin="0.5,0.5">
+                            <Image.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Image.RenderTransform>
+                        </Image>
+                        <Image HorizontalAlignment="Left" Height="6" Margin="-14,81,0,0" VerticalAlignment="Top" Width="173" Source="Resources/Linea.png" RenderTransformOrigin="0.5,0.5">
+                            <Image.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Image.RenderTransform>
+                        </Image>
+                        <Image HorizontalAlignment="Left" Height="6" Margin="20,83,-24,0" VerticalAlignment="Top" Width="172" Source="Resources/Linea.png" RenderTransformOrigin="0.5,0.5">
+                            <Image.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Image.RenderTransform>
+                        </Image>
+                        <Image HorizontalAlignment="Left" Height="6" Margin="51,83,-56,0" VerticalAlignment="Top" Width="173" Source="Resources/Linea.png" RenderTransformOrigin="0.5,0.5">
+                            <Image.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Image.RenderTransform>
+                        </Image>
+                    </Grid>
+                    <Label Content="Matriz de cifrado" HorizontalAlignment="Left" Margin="730,106,0,0" VerticalAlignment="Top"/>
                 </Grid>
+
             </TabItem>
             <TabItem Header="Vigenère">
                 <Grid>

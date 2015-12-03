@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CifradoresClasicos {
-    class cifradorCesar {
+    class CifradorCesar {
         static string abc = "abcdefghijklmñnopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ1234567890_-+,#$%&/()=¿?¡!|,.;:{}[]";
-        public cifradorCesar() {
+        public CifradorCesar() {
 
         }
         
@@ -39,7 +39,7 @@ namespace CifradoresClasicos {
              return cifrado;
         }
 
-        static string descifrar( string mensaje, int desplazamiento )
+        public string descifrar( string mensaje, int desplazamiento )
          {
              String cifrado = "";
              if (desplazamiento > 0 && desplazamiento < abc.Length)
