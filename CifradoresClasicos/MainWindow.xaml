@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         Title="Cifradores Clásicos" Height="573.382" Width="951.177" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen"
                        BorderThickness="0" 
-                      GlowBrush="Black" Icon="Resources/candado.png">
+                      GlowBrush="Black" Icon="Resources/candado.ico" Loaded="MetroWindow_Loaded">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -13,8 +13,46 @@
         <TabControl HorizontalAlignment="Left" Height="524" Margin="10,10,0,0" VerticalAlignment="Top" Width="925">
             <TabItem Header="Cesar">
                 <Grid>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="66,100,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.496,0.541"/>
+                    <Label x:Name="labelPlano" Content="Texto plano" HorizontalAlignment="Left" Margin="86,75,0,0" VerticalAlignment="Top" Width="97" Panel.ZIndex="1"/>
+                    <StackPanel x:Name="stack1" Orientation="Horizontal" Margin="75,106,178,258">
+                        <TextBlock Name="DataGridTitle" />
+                        <StackPanel
+                            Orientation="Horizontal" VerticalAlignment="Top" Width="665" Height="105">
+                            <TextBlock />
+                            <TextBox
+                        		x:Name="VerticallyExpandMe"
+                        		Margin="10,2,10,1"
+                        		AcceptsReturn="True"
+                        		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="650" MaxLength="650" TextWrapping="Wrap" Padding="0" TextChanged="VerticallyExpandMe_TextChanged"
+                                />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel x:Name="stack2"
+                    	Orientation="Horizontal" VerticalAlignment="Top" Height="105" Margin="74,295,180,0">
+                        <TextBlock />
+                        <TextBox
+                    		x:Name="Expandir2"
+                    		Margin="10,2,10,1"
+                    		AcceptsReturn="True"
+                    		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="650" MaxLength="650" TextWrapping="Wrap" Padding="0"
+                                />
+                    </StackPanel>
+                    <Label x:Name="labelCifrado" Content="Texto cifrado" HorizontalAlignment="Left" Margin="86,264,0,0" VerticalAlignment="Top" Width="97"/>
+                    <Controls:ToggleSwitch Header="Acción" OnLabel="Cifrar" OffLabel="Descifrar" Content="" IsChecked="True" VerticalAlignment="Top" VerticalContentAlignment="Top" Margin="802,173,54,0" Unchecked="CambiaraDescifrarCesar" Checked="cambiarCifrarCesar"/>
+                    <Label Content="Cifrar" HorizontalAlignment="Left" Margin="870,203,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Descifrar" HorizontalAlignment="Left" Margin="741,203,0,0" VerticalAlignment="Top"/>
+                    <Image HorizontalAlignment="Left" Height="185" Margin="6,130,0,0" VerticalAlignment="Top" Width="94" Source="Resources/flechaFondoBajar.png" RenderTransformOrigin="0.5,0.5" Opacity="0.6">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform AngleY="-6.405"/>
+                                <RotateTransform Angle="-12.558"/>
+                                <TranslateTransform X="-0.696" Y="-5.23"/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
                 </Grid>
+
             </TabItem>
             <TabItem Header="Albertis">
                 <Grid>
@@ -26,7 +64,7 @@
                     <ComboBox HorizontalAlignment="Left" Margin="230,74,0,0" VerticalAlignment="Top" Width="120"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Vigenére">
+            <TabItem Header="Vigenère">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>

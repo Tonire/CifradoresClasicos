@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using System.Windows.Media.Animation;
 
 namespace CifradoresClasicos
 {
@@ -21,9 +22,30 @@ namespace CifradoresClasicos
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        private bool cifrarCesar = true;
+        private cifradorCesar cifrador;
+
         public MainWindow()
         {
             InitializeComponent();
+            cifrador = new cifradorCesar();
         }
+
+        private void CambiaraDescifrarCesar(object sender, RoutedEventArgs e) {
+            cifrarCesar = false;
+        }
+        private void cambiarCifrarCesar(object sender, RoutedEventArgs e) {
+            cifrarCesar = true;
+        }
+
+        private void MetroWindow_Loaded(object sender, RoutedEventArgs e) {
+            
+        }
+
+        private void VerticallyExpandMe_TextChanged(object sender, TextChangedEventArgs e) {
+            string prueba = cifrador.cifrar(VerticallyExpandMe.Text,13);
+            Expandir2.Text = prueba;
+        }
+
     }
 }
