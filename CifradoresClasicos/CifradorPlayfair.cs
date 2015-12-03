@@ -21,9 +21,9 @@ namespace CifradoresClasicos
 
         public string arreglar(string texto)
         {
-            texto.ToUpper();
-            texto.Replace('I', 'J'); //Quito las Js
-            texto.Replace('N', 'Ñ');  //Quito las Ñs
+            texto = texto.ToUpper();
+            texto = texto.Replace('J', 'I'); //Quito las Js
+            texto = texto.Replace('Ñ', 'N');  //Quito las ennes
             string arreglado = "";
             string texto2 = "";
             for (int x = 0; x < texto.Length; x++)
@@ -57,7 +57,7 @@ namespace CifradoresClasicos
         public void generarMatriz(string clave)
         {
             //Aquí genero la matriz de playfair
-            clave.ToUpper();
+            clave = clave.ToUpper();
             string texto = "";
             for (int i = 0; i < clave.Length; i++)
             {
@@ -203,7 +203,7 @@ namespace CifradoresClasicos
         public string cifrar(string claro, string clave)
         {
             claro = arreglar(claro);
-            generarMatriz(clave);
+            //generarMatriz(clave);
             cifrado = "";
             for (int i = 0; i < claro.Length; i = i + 2)
                 cifrado += cifrarDigrama(claro[i], claro[i + 1]);
@@ -213,11 +213,11 @@ namespace CifradoresClasicos
 
         public string descifrar(string cifrado, string clave)
         {
-            generarMatriz(clave);
+            //generarMatriz(clave);
             claro = "";
+            //cifrado = arreglar(cifrado);
             for (int i = 0; i < cifrado.Length; i = i + 2)
                 claro += descifrarDigrama(cifrado[i], cifrado[i + 1]);
-            //System.out.println("texto en claro: " + claro);
             return claro;
 
         }
@@ -228,7 +228,6 @@ namespace CifradoresClasicos
 
     }
 
-    //Par.java
 
     public class Par
     {

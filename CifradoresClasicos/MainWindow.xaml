@@ -79,10 +79,10 @@
                     		x:Name="textoPlanoPlayfair"
                     		Margin="10,2,10,0"
                     		AcceptsReturn="True"
-                    		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="550" MaxLength="650" TextWrapping="Wrap" Padding="0" TextChanged="textoCifrado_TextChanged" Width="400"
+                    		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="550" MaxLength="650" TextWrapping="Wrap" Padding="0" Width="400" TextChanged="textoPlanoPlayfair_TextChanged"
                                 />
                     </StackPanel>
-                    <TextBox x:Name="claveCifradoPlayfair" HorizontalAlignment="Left" Height="23" Margin="477,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
+                    <TextBox x:Name="claveCifradoPlayfair" HorizontalAlignment="Left" Height="23" Margin="477,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" TextChanged="claveCifradoPlayfair_TextChanged"/>
                     <Label Content="Clave" HorizontalAlignment="Left" Margin="434,43,0,0" VerticalAlignment="Top"/>
                     <Image x:Name="imagenBajarPlayfair" HorizontalAlignment="Left" Height="185" Margin="6,130,0,0" VerticalAlignment="Top" Width="94" Source="Resources/flechaFondoBajar.png" RenderTransformOrigin="0.5,0.5" Opacity="0.6">
                         <Image.RenderTransform>
@@ -111,11 +111,11 @@
                     		x:Name="textoCifradoPlayfair"
                     		Margin="10,2,10,0"
                     		AcceptsReturn="True"
-                    		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="550" MaxLength="650" TextWrapping="Wrap" Padding="0" TextChanged="textoCifrado_TextChanged" Width="400"
+                    		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="550" MaxLength="650" TextWrapping="Wrap" Padding="0" Width="400" TextChanged="textoCifradoPlayfair_TextChanged"
                                 />
                     </StackPanel>
                     <Label x:Name="labelCifradoPlayfair" Content="Texto cifrado" HorizontalAlignment="Left" Margin="86,264,0,0" VerticalAlignment="Top" Width="97"/>
-                    <Controls:ToggleSwitch x:Name="switchPlayfair" Header="Acción" OnLabel="Cifrar" OffLabel="Descifrar" Content="" IsChecked="True" VerticalAlignment="Top" VerticalContentAlignment="Top" Margin="791,10,65,0"/>
+                    <Controls:ToggleSwitch x:Name="switchPlayfair" Header="Acción" OnLabel="Cifrar" OffLabel="Descifrar" Content="" IsChecked="True" VerticalAlignment="Top" VerticalContentAlignment="Top" Margin="791,10,65,0" Unchecked="cambiarDescifrarPlayfair" Checked="cambiarCifrarPlayfair"/>
                     <Label Content="Cifrar" HorizontalAlignment="Left" Margin="859,43,0,0" VerticalAlignment="Top"/>
                     <Label Content="Descifrar" HorizontalAlignment="Left" Margin="730,43,0,0" VerticalAlignment="Top"/>
                     <Grid HorizontalAlignment="Left" Height="172" Margin="730,137,0,0" VerticalAlignment="Top" Width="168" ShowGridLines="True">
