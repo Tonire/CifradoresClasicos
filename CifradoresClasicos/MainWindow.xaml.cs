@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using System.Windows.Media.Animation;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace CifradoresClasicos
 {
@@ -26,7 +27,7 @@ namespace CifradoresClasicos
         private bool cifrarPlayfair = true;
         private CifradorCesar cifrador;
         private CifradorPlayfair playfair;
-        private char[,] matriz;
+        private char[,] matriz = null;
         public MainWindow()
         {
             InitializeComponent();
@@ -48,20 +49,34 @@ namespace CifradoresClasicos
         }
 
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e) {
+            //Cuando se carga la ventana
+            IList<int> listaDesplazamientosEnteros = new List<int>();
+            for (int i = 1; i < 51; i++) {
+                listaDesplazamientosEnteros.Add(i);
+            }
+            comboDesplazamiento.ItemsSource = listaDesplazamientosEnteros;
             
         }
 
         private void textoPlano_TextChanged(object sender, TextChangedEventArgs e) {
-            if (cifrarCesar) {
-                string cifrado = cifrador.cifrar(textoPlano.Text, 13);
+            if (cifrarCesar && comboDesplazamiento.SelectedValue != null) {
+                string cifrado = cifrador.cifrar(textoPlano.Text, int.Parse(comboDesplazamiento.SelectedValue.ToString()));
                 textoCifrado.Text = cifrado;
+            } else {
+                if (comboDesplazamiento.SelectedValue == null && cifrarCesar) {
+                    mostrarMensaje("Error desplazamiento", "Primero debes seleccionar un desplazamiento!");
+                }
             }
         }
 
         private void textoCifrado_TextChanged(object sender, TextChangedEventArgs e) {
-            if (!cifrarCesar) {
-                string descifrado = cifrador.descifrar(textoCifrado.Text, 13);
+            if (!cifrarCesar && comboDesplazamiento.SelectedValue != null) {
+                string descifrado = cifrador.descifrar(textoCifrado.Text, int.Parse(comboDesplazamiento.SelectedValue.ToString()));
                 textoPlano.Text = descifrado;
+            } else {
+                if (comboDesplazamiento.SelectedValue == null && !cifrarCesar) {
+                    mostrarMensaje("Error desplazamiento", "Primero debes seleccionar un desplazamiento!");
+                }
             }
         }
         /*Playfair*/
@@ -123,16 +138,26 @@ namespace CifradoresClasicos
         }
 
         private void textoPlanoPlayfair_TextChanged(object sender, TextChangedEventArgs e) {
-            if (cifrarPlayfair) {
+            if (cifrarPlayfair && matriz != null) {
                 string cifrado = playfair.cifrar(textoPlanoPlayfair.Text, claveCifradoPlayfair.Text.ToUpper());
                 textoCifradoPlayfair.Text = cifrado;
             }
+            if (matriz == null) {
+                mostrarMensaje("No hay clave!", "Necesitas escribir una clave de cifrado primero. Con ella se generá la matriz de cifrado.");
+            }
+        }
+
+        private async void mostrarMensaje(string titulo, string mensaje) {
+            await this.ShowMessageAsync(titulo, mensaje);
         }
 
         private void textoCifradoPlayfair_TextChanged(object sender, TextChangedEventArgs e) {
-            if (!cifrarPlayfair && ((textoCifradoPlayfair.Text.Length % 2) == 0)) {
+            if (!cifrarPlayfair && ((textoCifradoPlayfair.Text.Length % 2) == 0) && matriz != null) {
                 string descifrado = playfair.descifrar(textoCifradoPlayfair.Text.ToUpper(), claveCifradoPlayfair.Text.ToUpper());
                 textoPlanoPlayfair.Text = descifrado;
+            }
+            if (matriz == null) {
+                mostrarMensaje("No hay clave!", "Necesitas escribir una clave de cifrado primero. Con ella se generá la matriz de cifrado.");
             }
         }
 

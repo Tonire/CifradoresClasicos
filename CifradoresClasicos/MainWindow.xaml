@@ -61,6 +61,8 @@
                             </TransformGroup>
                         </Image.RenderTransform>
                     </Image>
+                    <ComboBox x:Name="comboDesplazamiento" HorizontalAlignment="Left" Margin="619,35,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Desplazamiento" HorizontalAlignment="Left" Margin="524,35,0,0" VerticalAlignment="Top"/>
                 </Grid>
 
             </TabItem>
@@ -78,7 +80,6 @@
                         <TextBox
                     		x:Name="textoPlanoPlayfair"
                     		Margin="10,2,10,0"
-                    		AcceptsReturn="True"
                     		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="550" MaxLength="650" TextWrapping="Wrap" Padding="0" Width="400" TextChanged="textoPlanoPlayfair_TextChanged"
                                 />
                     </StackPanel>
@@ -110,7 +111,6 @@
                         <TextBox
                     		x:Name="textoCifradoPlayfair"
                     		Margin="10,2,10,0"
-                    		AcceptsReturn="True"
                     		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="550" MaxLength="650" TextWrapping="Wrap" Padding="0" Width="400" TextChanged="textoCifradoPlayfair_TextChanged"
                                 />
                     </StackPanel>
