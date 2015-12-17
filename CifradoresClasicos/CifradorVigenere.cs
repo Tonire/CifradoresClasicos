@@ -8,7 +8,7 @@ namespace CifradoresClasicos
 {
     class CifradorVigenere
     {
-        static string abecedario = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        static string abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
         public CifradorVigenere() {
 
         }

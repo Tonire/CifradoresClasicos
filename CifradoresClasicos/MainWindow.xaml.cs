@@ -178,7 +178,8 @@ namespace CifradoresClasicos
 
         private void textoPlanoVigenere_TextChanged(object sender, TextChangedEventArgs e) {
             if (cifrarVigenere && textoPlanoVigenere.Text != "") {
-                
+                string cifrado = vigenere.cifrar(textoPlanoVigenere.Text, claveVigenere.Text);
+               textoCifradoVigenere.Text = cifrado;
             }
         }
 

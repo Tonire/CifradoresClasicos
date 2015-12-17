@@ -239,7 +239,7 @@
                     </StackPanel>
                     <Label x:Name="labelCifradoVigenere" Content="Texto cifrado" HorizontalAlignment="Left" Margin="86,264,0,0" VerticalAlignment="Top" Width="97"/>
                     <Label Content="Clave" HorizontalAlignment="Left" Margin="443,47,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="486,47,0,0" TextWrapping="Wrap" Text="LIMON" VerticalAlignment="Top" Width="151"/>
+                    <TextBox x:Name="claveVigenere" HorizontalAlignment="Left" Height="23" Margin="486,47,0,0" TextWrapping="Wrap" Text="LIMON" VerticalAlignment="Top" Width="151"/>
                     <Controls:ToggleSwitch x:Name="switchVigenere" Header="Acción" OnLabel="Cifrar" OffLabel="Descifrar" Content="" IsChecked="True" VerticalAlignment="Top" VerticalContentAlignment="Top" Margin="779,160,77,0" Unchecked="cambiarDescifrarVigenere" Checked="cambiarCifrarVigenere"/>
                     <Label Content="Cifrar" HorizontalAlignment="Left" Margin="847,193,0,0" VerticalAlignment="Top"/>
                     <Label Content="Descifrar" HorizontalAlignment="Left" Margin="718,193,0,0" VerticalAlignment="Top"/>
