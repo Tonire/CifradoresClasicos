@@ -161,5 +161,17 @@ namespace CifradoresClasicos
             }
         }
 
+        private void cambiarCifrarVigenere(object sender, RoutedEventArgs e) {
+            imagenSubirVigenere.Opacity = 0;
+            imagenBajarVigenere.Opacity = 0.6;
+            cifrarPlayfair = true;
+        }
+
+        private void cambiarDescifrarVigenere(object sender, RoutedEventArgs e) {
+            imagenSubirVigenere.Opacity = 0.6;
+            imagenBajarVigenere.Opacity = 0;
+            cifrarPlayfair = false;
+        }
+
     }
 }

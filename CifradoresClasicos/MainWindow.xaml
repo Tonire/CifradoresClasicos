@@ -198,7 +198,51 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="144,90,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <Label x:Name="labelPlanoVigenere" Content="Texto plano" HorizontalAlignment="Left" Margin="86,75,0,0" VerticalAlignment="Top" Width="97" Panel.ZIndex="1"/>
+                    <StackPanel x:Name="stackVigenere1"
+                    	Orientation="Horizontal" VerticalAlignment="Top" Height="105" Margin="74,106,282,0">
+                        <TextBlock />
+                        <TextBox
+                    		x:Name="textoPlanoVigenere"
+                    		Margin="10,2,10,0"
+                    		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="550" MaxLength="650" TextWrapping="Wrap" Padding="0" Width="400" TextChanged="textoPlanoPlayfair_TextChanged"
+                                />
+                    </StackPanel>
+                    <Image x:Name="imagenBajarVigenere" HorizontalAlignment="Left" Height="185" Margin="6,130,0,0" VerticalAlignment="Top" Width="94" Source="Resources/flechaFondoBajar.png" RenderTransformOrigin="0.5,0.5" Opacity="0.6">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform AngleY="-6.405"/>
+                                <RotateTransform Angle="-12.558"/>
+                                <TranslateTransform X="-0.696" Y="-5.23"/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Image x:Name="imagenSubirVigenere" HorizontalAlignment="Left" Height="185" Margin="17,138,0,0" VerticalAlignment="Top" Width="94" Source="Resources/flechaFondo.png" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform AngleY="-6.405"/>
+                                <RotateTransform Angle="12.107"/>
+                                <TranslateTransform X="-0.696" Y="-5.23"/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                    <StackPanel x:Name="stackVigenere2"
+                    	Orientation="Horizontal" VerticalAlignment="Top" Height="105" Margin="74,295,282,0">
+                        <TextBlock />
+                        <TextBox
+                    		x:Name="textoCifradoVigenere"
+                    		Margin="10,2,10,0"
+                    		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="550" MaxLength="650" TextWrapping="Wrap" Padding="0" Width="400" TextChanged="textoCifradoPlayfair_TextChanged"
+                                />
+                    </StackPanel>
+                    <Label x:Name="labelCifradoVigenere" Content="Texto cifrado" HorizontalAlignment="Left" Margin="86,264,0,0" VerticalAlignment="Top" Width="97"/>
+                    <Label Content="Clave" HorizontalAlignment="Left" Margin="443,47,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="486,47,0,0" TextWrapping="Wrap" Text="LIMON" VerticalAlignment="Top" Width="151"/>
+                    <Controls:ToggleSwitch x:Name="switchVigenere" Header="Acción" OnLabel="Cifrar" OffLabel="Descifrar" Content="" IsChecked="True" VerticalAlignment="Top" VerticalContentAlignment="Top" Margin="779,160,77,0" Unchecked="cambiarDescifrarVigenere" Checked="cambiarCifrarVigenere"/>
+                    <Label Content="Cifrar" HorizontalAlignment="Left" Margin="847,193,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Descifrar" HorizontalAlignment="Left" Margin="718,193,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Créditos" Margin="412,0,-412,0">
