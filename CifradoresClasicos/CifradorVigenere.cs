@@ -8,9 +8,9 @@ namespace CifradoresClasicos
 {
     class CifradorVigenere
     {
-        static string abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+        static string abecedario = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-        public static string Vigenerecifrado(string s, string cadena, string alfabeto)
+        public static string Vigenerecifrado(string s, string cadena)
         {
             s = s.ToUpper();
             cadena = cadena.ToUpper();
@@ -18,19 +18,20 @@ namespace CifradoresClasicos
             StringBuilder r = new StringBuilder(s.Length);
             for (int i = 0; i < s.Length; i++)
             {
-                if (alfabeto.Contains(s[i]))
-
-                    r.Append(alfabeto[(alfabeto.IndexOf(s[i]) + alfabeto.IndexOf(cadena[j])) % alfabeto.Length]);
-                else
+                if (abecedario.Contains(s[i])){
+                    r.Append(abecedario[(abecedario.IndexOf(s[i]) + abecedario.IndexOf(cadena[j])) % abecedario.Length]);
+                }else{
                     r.Append(s[i]); 
-                    j = (j + 1) % cadena.Length;       
+                    j = (j + 1) % cadena.Length; 
+                }
+                          
             }
             return r.ToString();
         }
 
 
 
-        public static string Vigenerdescifrado(string s, string cadena, string alfabeto)
+        public static string Vigenerdescifrado(string s, string cadena)
         {
             s = s.ToUpper();
             cadena = cadena.ToUpper();
@@ -38,12 +39,13 @@ namespace CifradoresClasicos
             StringBuilder r = new StringBuilder(s.Length);
             for (int i = 0; i < s.Length; i++)
             {
-                if (alfabeto.Contains(s[i]))
-
-                    r.Append(alfabeto[(alfabeto.IndexOf(s[i]) - alfabeto.IndexOf(cadena[j]) + alfabeto.Length) % alfabeto.Length]);
-                else
+                if (abecedario.Contains(s[i])){
+                    r.Append(abecedario[(abecedario.IndexOf(s[i]) - abecedario.IndexOf(cadena[j]) + abecedario.Length) % abecedario.Length]);
+                }else{
                     r.Append(s[i]);
-                j = (j + 1) % cadena.Length;
+                    j = (j + 1) % cadena.Length;
+                }
+                
             }
             return r.ToString();
         }
