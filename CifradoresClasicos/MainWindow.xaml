@@ -205,7 +205,7 @@
                         <TextBox
                     		x:Name="textoPlanoVigenere"
                     		Margin="10,2,10,0"
-                    		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="550" MaxLength="650" TextWrapping="Wrap" Padding="0" Width="400" TextChanged="textoPlanoPlayfair_TextChanged"
+                    		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="550" MaxLength="650" TextWrapping="Wrap" Padding="0" Width="400" TextChanged="textoPlanoVigenere_TextChanged"
                                 />
                     </StackPanel>
                     <Image x:Name="imagenBajarVigenere" HorizontalAlignment="Left" Height="185" Margin="6,130,0,0" VerticalAlignment="Top" Width="94" Source="Resources/flechaFondoBajar.png" RenderTransformOrigin="0.5,0.5" Opacity="0.6">
@@ -234,7 +234,7 @@
                         <TextBox
                     		x:Name="textoCifradoVigenere"
                     		Margin="10,2,10,0"
-                    		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="550" MaxLength="650" TextWrapping="Wrap" Padding="0" Width="400" TextChanged="textoCifradoPlayfair_TextChanged"
+                    		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="550" MaxLength="650" TextWrapping="Wrap" Padding="0" Width="400" TextChanged="textoCifradoVigenere_TextChanged"
                                 />
                     </StackPanel>
                     <Label x:Name="labelCifradoVigenere" Content="Texto cifrado" HorizontalAlignment="Left" Margin="86,264,0,0" VerticalAlignment="Top" Width="97"/>

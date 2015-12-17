@@ -25,14 +25,17 @@ namespace CifradoresClasicos
     {
         private bool cifrarCesar = true;
         private bool cifrarPlayfair = true;
+        private bool cifrarVigenere = true;
         private CifradorCesar cifrador;
         private CifradorPlayfair playfair;
+        private CifradorVigenere vigenere;
         private char[,] matriz = null;
         public MainWindow()
         {
             InitializeComponent();
             cifrador = new CifradorCesar();
             playfair = new CifradorPlayfair();
+            vigenere = new CifradorVigenere();
         }
 
         private void CambiaraDescifrarCesar(object sender, RoutedEventArgs e) {
@@ -171,6 +174,16 @@ namespace CifradoresClasicos
             imagenSubirVigenere.Opacity = 0.6;
             imagenBajarVigenere.Opacity = 0;
             cifrarPlayfair = false;
+        }
+
+        private void textoPlanoVigenere_TextChanged(object sender, TextChangedEventArgs e) {
+            if (cifrarVigenere && textoPlanoVigenere.Text != "") {
+                
+            }
+        }
+
+        private void textoCifradoVigenere_TextChanged(object sender, TextChangedEventArgs e) {
+
         }
 
     }
