@@ -167,24 +167,30 @@ namespace CifradoresClasicos
         private void cambiarCifrarVigenere(object sender, RoutedEventArgs e) {
             imagenSubirVigenere.Opacity = 0;
             imagenBajarVigenere.Opacity = 0.6;
-            cifrarPlayfair = true;
+            cifrarVigenere = true;
         }
 
         private void cambiarDescifrarVigenere(object sender, RoutedEventArgs e) {
             imagenSubirVigenere.Opacity = 0.6;
             imagenBajarVigenere.Opacity = 0;
-            cifrarPlayfair = false;
+            cifrarVigenere = false;
         }
 
         private void textoPlanoVigenere_TextChanged(object sender, TextChangedEventArgs e) {
             if (cifrarVigenere && textoPlanoVigenere.Text != "") {
-                string cifrado = vigenere.cifrar(textoPlanoVigenere.Text, claveVigenere.Text);
+               string cifrado = vigenere.Cifrado(textoPlanoVigenere.Text, claveVigenere.Text,true);
                textoCifradoVigenere.Text = cifrado;
             }
         }
 
         private void textoCifradoVigenere_TextChanged(object sender, TextChangedEventArgs e) {
-
+           if (!cifrarVigenere && textoCifradoVigenere.Text != "") {
+               char[] cifrado = textoCifradoVigenere.Text.ToCharArray();
+               char[] key = claveVigenere.Text.ToCharArray();
+               char[] descifrado = vigenere.Descifrado(cifrado, key);
+               string des = new string(descifrado);
+               textoPlanoVigenere.Text = des;
+            }
         }
 
     }
