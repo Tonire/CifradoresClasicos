@@ -9,8 +9,10 @@ namespace CifradoresClasicos
     class CifradorVigenere
     {
         static string abecedario = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        public CifradorVigenere() {
 
-        public static string Vigenerecifrado(string s, string cadena)
+        }
+        public string cifrar(string s, string cadena)
         {
             s = s.ToUpper();
             cadena = cadena.ToUpper();
@@ -31,7 +33,7 @@ namespace CifradoresClasicos
 
 
 
-        public static string Vigenerdescifrado(string s, string cadena)
+        public string descifrar(string s, string cadena)
         {
             s = s.ToUpper();
             cadena = cadena.ToUpper();
