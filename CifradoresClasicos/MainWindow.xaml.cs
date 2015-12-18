@@ -26,9 +26,12 @@ namespace CifradoresClasicos
         private bool cifrarCesar = true;
         private bool cifrarPlayfair = true;
         private bool cifrarVigenere = true;
+        private bool cifrarAlbertis = true;
+        private string giro;
         private CifradorCesar cifrador;
         private CifradorPlayfair playfair;
         private CifradorVigenere vigenere;
+        private CifradorAlberti alberti;
         private char[,] matriz = null;
         public MainWindow()
         {
@@ -36,6 +39,8 @@ namespace CifradoresClasicos
             cifrador = new CifradorCesar();
             playfair = new CifradorPlayfair();
             vigenere = new CifradorVigenere();
+            alberti = new CifradorAlberti();
+            giro = null;
         }
 
         private void CambiaraDescifrarCesar(object sender, RoutedEventArgs e) {
@@ -54,9 +59,15 @@ namespace CifradoresClasicos
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e) {
             //Cuando se carga la ventana
             IList<int> listaDesplazamientosEnteros = new List<int>();
+            IList<int> listaDesplazamientosAlbertis = new List<int>();
             for (int i = 1; i < 51; i++) {
                 listaDesplazamientosEnteros.Add(i);
+                
             }
+            for(int i=0;i<24;i++){
+                listaDesplazamientosAlbertis.Add(i);
+            }
+            comboDesplazamientoAlbertis.ItemsSource = listaDesplazamientosAlbertis;
             comboDesplazamiento.ItemsSource = listaDesplazamientosEnteros;
             
         }
@@ -191,6 +202,26 @@ namespace CifradoresClasicos
                string des = new string(descifrado);
                textoPlanoVigenere.Text = des;
             }
+        }
+
+        private void textoPlanoAlbertis_TextChanged(object sender, TextChangedEventArgs e) {
+            if (cifrarAlbertis) {
+                int desplazamiento = Int32.Parse(comboDesplazamientoAlbertis.SelectedIndex.ToString());
+                string planoLimpio = alberti.limpiaTexto(textoPlanoAlbertis.Text);
+                string albertiCifrado = alberti.alberti(planoLimpio,labelMovil.Content.ToString(),desplazamiento,true);
+                textoCifradoAlbertis.Text = albertiCifrado;
+            }
+        }
+
+        private void textoCifradoAlbertis_TextChanged(object sender, TextChangedEventArgs e) {
+            if (!cifrarAlbertis) {
+
+            }
+        }
+
+        private void desplazamientoAlbertis__changed(object sender, SelectionChangedEventArgs e) {
+            giro = alberti.gira(Int32.Parse(comboDesplazamientoAlbertis.SelectedIndex.ToString()));
+           labelMovil.Content= giro;
         }
 
     }

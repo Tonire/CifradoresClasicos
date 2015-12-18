@@ -68,7 +68,34 @@
             </TabItem>
             <TabItem Header="Albertis">
                 <Grid>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="153,56,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboDesplazamientoAlbertis" HorizontalAlignment="Left" Margin="608,83,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="desplazamientoAlbertis__changed"/>
+                    <Label Content="Desplazamiento" HorizontalAlignment="Left" Margin="513,83,0,0" VerticalAlignment="Top"/>
+                    <StackPanel x:Name="stackAlbertisDFijo"
+                    	Orientation="Horizontal" VerticalAlignment="Top" Height="105" Margin="54,134,200,0">
+                        <TextBlock />
+                        <TextBox
+                    		x:Name="textoPlanoAlbertis"
+                    		Margin="10,2,10,1"
+                    		AcceptsReturn="True"
+                    		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="650" MaxLength="650" TextWrapping="Wrap" Padding="0" TextChanged="textoPlanoAlbertis_TextChanged"
+                                />
+                    </StackPanel>
+                    <StackPanel x:Name="stackCifradoAlbertis"
+                    	Orientation="Horizontal" VerticalAlignment="Top" Height="105" Margin="54,295,200,0">
+                        <TextBlock />
+                        <TextBox
+                    		x:Name="textoCifradoAlbertis"
+                    		Margin="10,2,10,1"
+                    		AcceptsReturn="True"
+                    		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="650" MaxLength="650" TextWrapping="Wrap" Padding="0" TextChanged="textoCifradoAlbertis_TextChanged"
+                                />
+                    </StackPanel>
+                    <Label x:Name="labelCifradoAlbertis" Content="Texto cifrado" HorizontalAlignment="Left" Margin="66,264,0,0" VerticalAlignment="Top" Width="97"/>
+                    <Label x:Name="labelPlanoAlbertis" Content="Texto plano&#xD;&#xA;" HorizontalAlignment="Left" Margin="66,103,0,0" VerticalAlignment="Top" Width="97"/>
+                    <Label Content="Disco fijo&#xD;&#xA;" HorizontalAlignment="Left" Margin="336,10,0,0" VerticalAlignment="Top" Height="24"/>
+                    <Label Content="Disco móvil&#xD;&#xA;" HorizontalAlignment="Left" Margin="336,39,0,0" VerticalAlignment="Top" Height="24"/>
+                    <Label x:Name="labelFijo" Content="ABCDEFGILMNOPQRSTVXZ1234" HorizontalAlignment="Left" Margin="427,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="labelMovil" Content="c&amp;bmdgpfznxyvtoskerlhaiqc" HorizontalAlignment="Left" Margin="427,36,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Playfair">
