@@ -28,7 +28,7 @@ namespace CifradoresClasicos {
             string alfabeto = "ABCDEFGILMNOPQRSTVXZ1234";
             string res = "";
             int idx;
-            int chr;
+            char chr;
             plano = limpiaTexto(plano);
             for (int i = 0; i < plano.Length; i++) {
                 if (tipo == true) {
