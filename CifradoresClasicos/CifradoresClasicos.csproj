@@ -70,6 +70,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CifradorAlberti.cs" />
     <Compile Include="CifradorCesar.cs" />
     <Compile Include="CifradorPlayfair.cs" />
     <Compile Include="CifradorVigenere.cs" />
