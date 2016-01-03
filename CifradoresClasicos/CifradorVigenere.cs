@@ -74,24 +74,6 @@ namespace CifradoresClasicos
 
     return encryptedText.ToString();
     }
-
-
-       /* public string Descifrar(string s, string cadena) {
-            s = s.ToUpper();
-            cadena = cadena.ToUpper();
-            int j = 0;
-            StringBuilder r = new StringBuilder(s.Length);
-            for (int i = 0; i < s.Length; i++) {
-                if (alfabeto.Contains(s[i])) {
-                    r.Append(abecedario[(abecedario.IndexOf(s[i]) - abecedario.IndexOf(cadena[j]) + abecedario.Length) % abecedario.Length]);
-                } else {
-                    r.Append(s[i]);
-                    j = (j + 1) % cadena.Length;
-                }
-
-            }
-            return r.ToString();
-        }*/
         public char[] Descifrado(char[] a, char[] k) {
             int[] C = new int[a.Length];
             int[] K = new int[a.Length];
