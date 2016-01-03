@@ -196,11 +196,8 @@ namespace CifradoresClasicos
 
         private void textoCifradoVigenere_TextChanged(object sender, TextChangedEventArgs e) {
            if (!cifrarVigenere && textoCifradoVigenere.Text != "") {
-               char[] cifrado = textoCifradoVigenere.Text.ToCharArray();
-               char[] key = claveVigenere.Text.ToCharArray();
-               char[] descifrado = vigenere.Descifrado(cifrado, key);
-               string des = new string(descifrado);
-               textoPlanoVigenere.Text = des;
+               string descifrado = vigenere.VigenereDecrypt(textoCifradoVigenere.Text, claveVigenere.Text);
+               textoPlanoVigenere.Text = descifrado;
             }
         }
 
