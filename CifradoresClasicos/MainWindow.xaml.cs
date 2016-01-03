@@ -26,7 +26,7 @@ namespace CifradoresClasicos
         private bool cifrarCesar = true;
         private bool cifrarPlayfair = true;
         private bool cifrarVigenere = true;
-        private bool cifrarAlbertis = true;
+        private bool cifrarAlberti = true;
         private string giro;
         private CifradorCesar cifrador;
         private CifradorPlayfair playfair;
@@ -202,7 +202,7 @@ namespace CifradoresClasicos
         }
 
         private void textoPlanoAlbertis_TextChanged(object sender, TextChangedEventArgs e) {
-            if (cifrarAlbertis) {
+            if (cifrarAlberti) {
                 int desplazamiento = Int32.Parse(comboDesplazamientoAlbertis.SelectedIndex.ToString());
                 string planoLimpio = alberti.limpiaTexto(textoPlanoAlbertis.Text);
                 string albertiCifrado = alberti.alberti(planoLimpio,labelMovil.Content.ToString(),desplazamiento,true);
@@ -211,14 +211,29 @@ namespace CifradoresClasicos
         }
 
         private void textoCifradoAlbertis_TextChanged(object sender, TextChangedEventArgs e) {
-            if (!cifrarAlbertis) {
-
+            if (!cifrarAlberti) {
+                int desplazamiento = Int32.Parse(comboDesplazamientoAlbertis.SelectedIndex.ToString());
+                string cifradoLimpio = alberti.limpiaTexto(textoCifradoAlbertis.Text);
+                string albertiDescifrado = alberti.alberti(cifradoLimpio,labelMovil.Content.ToString(),desplazamiento,false);
+                textoPlanoAlbertis.Text = albertiDescifrado;
             }
         }
 
         private void desplazamientoAlbertis__changed(object sender, SelectionChangedEventArgs e) {
             giro = alberti.gira(Int32.Parse(comboDesplazamientoAlbertis.SelectedIndex.ToString()));
            labelMovil.Content= giro;
+        }
+
+        private void cambiarCifrarAlberti(object sender, RoutedEventArgs e) {
+            imagenSubirAlberti.Opacity = 0;
+            imagenBajarAlberti.Opacity = 0.6;
+            cifrarAlberti = true;
+        }
+
+        private void cambiarDescifrarAlberti(object sender, RoutedEventArgs e) {
+            imagenSubirAlberti.Opacity = 0.6;
+            imagenBajarAlberti.Opacity = 0;
+            cifrarAlberti = false;
         }
 
     }

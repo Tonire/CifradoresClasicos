@@ -70,6 +70,9 @@
                 <Grid>
                     <ComboBox x:Name="comboDesplazamientoAlbertis" HorizontalAlignment="Left" Margin="608,83,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="desplazamientoAlbertis__changed"/>
                     <Label Content="Desplazamiento" HorizontalAlignment="Left" Margin="513,83,0,0" VerticalAlignment="Top"/>
+                    <Controls:ToggleSwitch x:Name="switchAlberti" Header="Acción" OnLabel="Cifrar" OffLabel="Descifrar" Content="" IsChecked="True" VerticalAlignment="Top" VerticalContentAlignment="Top" Margin="779,160,77,0" Unchecked="cambiarDescifrarAlberti" Checked="cambiarCifrarAlberti"/>
+                    <Label Content="Cifrar" HorizontalAlignment="Left" Margin="847,193,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Descifrar" HorizontalAlignment="Left" Margin="718,193,0,0" VerticalAlignment="Top"/>
                     <StackPanel x:Name="stackAlbertisDFijo"
                     	Orientation="Horizontal" VerticalAlignment="Top" Height="105" Margin="54,134,200,0">
                         <TextBlock />
@@ -80,6 +83,26 @@
                     		VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" MaxWidth="650" MinWidth="650" MaxLength="650" TextWrapping="Wrap" Padding="0" TextChanged="textoPlanoAlbertis_TextChanged"
                                 />
                     </StackPanel>
+                    <Image x:Name="imagenBajarAlberti" HorizontalAlignment="Left" Height="185" Margin="6,130,0,0" VerticalAlignment="Top" Width="94" Source="Resources/flechaFondoBajar.png" RenderTransformOrigin="0.5,0.5" Opacity="0.6">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform AngleY="-6.405"/>
+                                <RotateTransform Angle="-12.558"/>
+                                <TranslateTransform X="-0.696" Y="-5.23"/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Image x:Name="imagenSubirAlberti" HorizontalAlignment="Left" Height="185" Margin="17,138,0,0" VerticalAlignment="Top" Width="94" Source="Resources/flechaFondo.png" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform AngleY="-6.405"/>
+                                <RotateTransform Angle="12.107"/>
+                                <TranslateTransform X="-0.696" Y="-5.23"/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
                     <StackPanel x:Name="stackCifradoAlbertis"
                     	Orientation="Horizontal" VerticalAlignment="Top" Height="105" Margin="54,295,200,0">
                         <TextBlock />
