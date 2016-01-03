@@ -74,6 +74,7 @@ namespace CifradoresClasicos {
         }
 
 
+
         public string VigenereDecrypt(string s, string key) {
             s = s.ToUpper();
             key = key.ToUpper();

@@ -20,20 +20,40 @@ namespace CifradoresClasicos {
 
             return alfcifra;
         }
+
+        public string ReplaceAtIndex(string text, int index, char c) {
+            var stringBuilder = new StringBuilder(text);
+            stringBuilder[index] = c;
+            return stringBuilder.ToString();
+        }
+
         public string limpiaTexto(string texto) {
             texto = texto.ToUpper();
+            int i = 0;
+            for (i = 0; i < texto.Length; i++) {
+                if (texto[i] == 'U') {
+                    texto = ReplaceAtIndex(texto,i,'V');
+                }else if(texto[i] == 'W'){
+                    texto = ReplaceAtIndex(texto, i, 'V');
+                }else if(texto[i] == 'J'){
+                    texto = ReplaceAtIndex(texto, i, 'I');
+                }
+            }
             return texto;
         }
         public string alberti(string plano, string movil, int despl, bool tipo) {
-            string alfabeto = "ABCDEFGHIJKLMNOPQRSTVXZ1234";
+            string alfabeto = "ABCDEFGILMNOPQRSTVXZ1234";
             string res = "";
             int idx;
-            char chr;
+            char chr=' ';
             plano = limpiaTexto(plano);
             for (int i = 0; i < plano.Length; i++) {
                 if (tipo == true) {
                     idx = alfabeto.IndexOf(plano[i]);
-                    chr = movil[idx];
+                    if (idx >= 0) {
+                        chr = movil[idx];
+                    }
+                    
                 }else {
                     idx = movil.IndexOf(Char.ToLower(plano[i]));
                     chr = alfabeto[idx];
