@@ -66,7 +66,7 @@
                 </Grid>
 
             </TabItem>
-            <TabItem Header="Albertis">
+            <TabItem Header="Alberti">
                 <Grid>
                     <ComboBox x:Name="comboDesplazamientoAlbertis" HorizontalAlignment="Left" Margin="608,83,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="desplazamientoAlbertis__changed"/>
                     <Label Content="Desplazamiento" HorizontalAlignment="Left" Margin="513,83,0,0" VerticalAlignment="Top"/>

@@ -25,7 +25,7 @@ namespace CifradoresClasicos {
             return texto;
         }
         public string alberti(string plano, string movil, int despl, bool tipo) {
-            string alfabeto = "ABCDEFGILMNOPQRSTVXZ1234";
+            string alfabeto = "ABCDEFGHIJKLMNOPQRSTVXZ1234";
             string res = "";
             int idx;
             char chr;
